@@ -1,0 +1,169 @@
+/* ====== Styles untuk Website Kelas ====== */
+:root{
+  --bg-1: #1b264f;      /* malam biru tua */
+  --bg-2: #274690;      /* biru */
+  --bg-3: #576ca8;      /* biru keunguan */
+  --sun-1: #ff9966;     /* sunset orange */
+  --sun-2: #ff5e62;     /* sunset pink */
+  --glass: rgba(255,255,255,.08);
+  --stroke: rgba(255,255,255,.15);
+  --text: #f7f8fc;
+  --muted: #cfd6ff;
+  --accent: #ffd166;    /* aksen hangat */
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
+  color:var(--text);
+  background: linear-gradient(140deg, var(--bg-1), var(--bg-2) 35%, var(--bg-3) 60%, #2d1e4e 100%);
+  background-attachment: fixed;
+  overflow-x:hidden;
+}
+
+/* Animasi gradasi halus (sunset vibes) */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background: radial-gradient(1200px 600px at 70% 10%, var(--sun-1), transparent 55%),
+              radial-gradient(800px 400px at 80% 0%, var(--sun-2), transparent 40%);
+  mix-blend-mode: screen;
+  opacity:.8;
+  pointer-events:none;
+  animation: sunsetPulse 12s ease-in-out infinite alternate;
+}
+@keyframes sunsetPulse{
+  from{opacity:.65; transform:translateY(0)} to{opacity:.95; transform:translateY(-6px)}
+}
+
+/* Starfield canvas covers page */
+#starfield{
+  position:fixed; inset:0; z-index:-1; display:block;
+}
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:20;
+  backdrop-filter: saturate(150%) blur(6px);
+  background: linear-gradient( to bottom, rgba(10,10,16,.75), rgba(10,10,16,.2) );
+  border-bottom:1px solid var(--stroke);
+}
+.container{width:min(1100px, 92%); margin-inline:auto}
+.navbar{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:.75rem 0;
+}
+.brand{font-weight:800; letter-spacing:.5px; color:var(--text); text-decoration:none; font-size:1.1rem}
+.nav-links{display:flex; gap:1rem; list-style:none; margin:0; padding:0}
+.nav-links a{color:var(--text); text-decoration:none; opacity:.9}
+.nav-links a:hover{opacity:1}
+.nav-toggle{display:none; font-size:1.25rem; background:none; border:none; color:var(--text)}
+
+@media (max-width: 760px){
+  .nav-toggle{display:block}
+  .nav-links{
+    position:absolute; right:1rem; top:3.25rem; padding:.75rem; border:1px solid var(--stroke);
+    background:rgba(10,10,16,.9); border-radius:14px; display:none; flex-direction:column
+  }
+  .nav-links.show{display:flex}
+}
+
+/* Hero */
+.hero{
+  display:grid; place-items:center;
+  min-height:88vh; text-align:center; position:relative;
+}
+.hero-title{line-height:1.12; margin:0 0 .6rem; font-size: clamp(2rem, 4.5vw, 3.5rem)}
+.title-line{display:block}
+.gradient-text{
+  background: linear-gradient(90deg, #ffd166, #ffe08a, #fff, #ffd166);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation: shine 6s linear infinite;
+  background-size: 300% 100%;
+}
+@keyframes shine{to{background-position: 300% 0}}
+.hero-subtitle{opacity:.92; margin:.25rem 0 1.2rem; font-size:clamp(.95rem,2.8vw,1.1rem)}
+
+.cta-row{display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap}
+.btn{padding:.75rem 1.1rem; border-radius:14px; text-decoration:none; font-weight:600; border:1px solid var(--stroke)}
+.btn.primary{background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.02)); box-shadow: 0 6px 18px rgba(0,0,0,.25)}
+.btn.ghost{background:transparent}
+
+/* Scroll indicator */
+.scroll-indicator{ position:absolute; bottom:1.25rem; left:50%; transform:translateX(-50%); font-size:.8rem; opacity:.9 }
+.mouse{width:28px; height:42px; border:2px solid var(--muted); border-radius:16px; margin:.4rem auto 0; position:relative}
+.wheel{width:4px; height:8px; background:var(--muted); border-radius:3px; position:absolute; top:6px; left:50%; transform:translateX(-50%); animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{ 0%{opacity:0; transform:translate(-50%,2px)} 30%{opacity:1} 100%{opacity:0; transform:translate(-50%,14px)} }
+
+/* Sections */
+.section{padding: 4rem 0}
+.section-title{font-size: clamp(1.35rem, 3vw, 2rem); margin:0 0 1.25rem; position:relative}
+.section-title::after{content:""; display:block; width:70px; height:3px; background:var(--accent); border-radius:2px; margin-top:.5rem}
+
+.grid.two{display:grid; grid-template-columns:1.1fr .9fr; gap:1rem}
+.grid.three{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+@media (max-width: 900px){
+  .grid.two{grid-template-columns:1fr; }
+  .grid.three{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width: 540px){
+  .grid.three{grid-template-columns:1fr}
+}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid var(--stroke);
+  border-radius:18px; padding:1rem; backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.22);
+}
+.photo-card img{width:100%; height:100%; object-fit:cover; border-radius:12px}
+.ticks{padding-left:1.1rem}
+.ticks li{margin:.25rem 0}
+
+/* Table */
+.table-resp{overflow:auto; border-radius:12px; border:1px solid var(--stroke)}
+table{width:100%; border-collapse:collapse; min-width:520px}
+th, td{padding:.75rem .9rem; text-align:left; border-bottom:1px solid var(--stroke)}
+thead th{position:sticky; top:0; background:rgba(10,10,16,.6); backdrop-filter: blur(5px)}
+
+/* Person Cards */
+.person{ text-align:center }
+.person img{ width:100%; aspect-ratio: 1 / 1; object-fit:cover; border-radius:14px; }
+.role{ opacity:.9; margin:.25rem 0 0 }
+
+/* Gallery */
+.gallery{ display:grid; grid-template-columns: repeat(3, 1fr); gap:.65rem; }
+.gallery-item{ display:block; border-radius:12px; overflow:hidden; border:1px solid var(--stroke); background:var(--glass); }
+.gallery img{ width:100%; height:100%; object-fit:cover; transition: transform .25s ease }
+.gallery a:hover img{ transform:scale(1.03) }
+@media (max-width: 860px){ .gallery{ grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 520px){ .gallery{ grid-template-columns: 1fr } }
+
+/* Footer */
+.site-footer{ padding: 3rem 0 2rem; border-top:1px solid var(--stroke); background: linear-gradient(180deg, rgba(10,10,16,.6), rgba(10,10,16,.2)); margin-top:2rem}
+.footer-inner{ display:flex; flex-direction:column; gap:1rem; align-items:center; text-align:center }
+.ig-link{ display:flex; align-items:center; gap:.6rem; padding:.7rem 1rem; border:1px solid var(--stroke); border-radius:14px; text-decoration:none; color:var(--text); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) }
+.ig-icon{ width:22px; height:22px; fill:var(--text); opacity:.95 }
+.under-ig{ margin:.5rem 0 0; opacity:.9 }
+copyright{opacity:.8}
+
+/* Utility */
+.note{opacity:.85; font-size:.9rem}
+.hidden{display:none}
+
+html {
+  scroll-behavior: smooth;
+}
+/* Animasi muncul */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
