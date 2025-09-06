@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Kelas Kita</title>
+
+  <!-- Font (boleh ganti) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="scripts.js" />
+</head>
+<body>
+  <!-- Canvas untuk animasi bintang -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#" class="brand">Kelas 9E</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Buka menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#info">Info Kelas</a></li>
+        <li><a href="#jadwal">Jadwal Piket</a></li>
+        <li><a href="#struktur">Struktur Kelas</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BERANDA / HERO -->
+  <section id="beranda" class="hero container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line">Selamat Datang</span>
+        <span class="title-line gradient-text">Di Website Kelas 9E</span>
+      </h1>
+      <p class="hero-subtitle">“Solidaritas Tanpa Batas Tetap Kompak Sampai Tuntas.”  <strong>-9 Explore</strong></p>
+
+      <div class="cta-row">
+        <a href="#info" class="btn primary">Lihat Info Kelas</a>
+        <a href="#galeri" class="btn ghost">Lihat Galeri</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Gulir ke bawah</span>
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO KELAS -->
+  <section id="info" class="section container">
+    <h2 class="section-title">Informasi Kelas</h2>
+    <div class="grid two">
+      <div class="card photo-card">
+        <!-- ganti assets/foto-kelas.jpg dengan foto kelasmu -->
+        <img src="foto1.jpg" alt="Foto Kelas" loading="lazy" />
+      </div>
+      <div class="card">
+        <h3>Deskripsi Singkat</h3>
+        <p>Ini adalah halaman resmi Kelas <strong>9E</strong>. Di sini kamu bisa menemukan informasi kelas, jadwal piket, struktur pengurus kelas, dan galeri kebersamaan kita.</p>
+        <ul class="ticks">
+          <li>Belajar bareng, tumbuh bareng.</li>
+          <li>Semangat, disiplin, dan saling menghargai.</li>
+          <li>Rajin piket, kelas bersih hati pun bersih ✨</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- JADWAL PIKET -->
+  <section id="jadwal" class="section container">
+    <h2 class="section-title">Jadwal Piket</h2>
+
+    <div class="card table-card">
+      <div class="table-resp">
+        <table>
+          <thead>
+            <tr>
+              <th>Hari</th>
+              <th>Petugas 1</th>
+              <th>Petugas 2</th>
+              <th>Petugas 3</th>
+              <th>Petugas 4</th>
+              <th>Petugas 5</th>
+              <th>Petugas 6</th>
+              <th>Petugas 7</th>
+              <th>Petugas  8</th>
+              <th>Petugas 9</th>
+              <th>Petugas 10</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Senin</td><td>Satrio</td><td>Nabilah</td><td>Citra</td><td>Pedro</td><td>Chila</td><td>Ezhar</td><td>Jeffan</td><td>Zaza</td><td>Subekhi</td><td>Noya</td></tr>
+            <tr><td>Selasa</td><td>Dzaky</td><td>Arumidah</td><td>Rafael</td><td>Nabila</td><td>Fathan</td><td>Zahra</td><td>Haycal</td><td>Grisalda</td><td>Khoerul</td><td>Jihan</td></tr>
+            <tr><td>Rabu</td><td>Luoisiana</td><td>Huda</td><td>Maulinda</td><td>Lail</td><td>Priska</td><td>Nazif</td><td>Laras</td><td>Santoso</td><td>Agnes</td><td>Lutfi</td></tr>
+            <tr><td>Kamis</td><td>Alya</td><td>Fandi</td><td>Cindy</td><td>Arya</td><td>Penty</td><td>Zaahir</td><td>Subayu</td><td>Giofani</td><td>Fakhri</td><td>Rizqy</td></tr>
+            <tr><td>Jumat</td><td>JUM'AT BERSIH</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">*Silakan sesuaikan nama dan pembagian piket sesuai kebutuhan.</p>
+    </div>
+  </section>
+
+  <!-- STRUKTUR KELAS -->
+  <section id="struktur" class="section container">
+    <h2 class="section-title">Struktur Pengurus Kelas</h2>
+
+    <div class="grid three">
+      <div class="card person">
+        <imgalt="Ketua Kelas" loading="lazy" />
+        <h3>Satrio Fajar Habibie</h3>
+        <p class="role">Ketua Kelas</p>
+      </div>
+      <div class="card person">
+        <imgalt="Wakil Ketua" loading="lazy" />
+        <h3>Fathan Nur Azizan</h3>
+        <p class="role">Wakil Ketua</p>
+      </div>
+      <div class="card person">
+        <imgalt="Sekretaris" loading="lazy" />
+        <h3>Luoisiana Kirey Sya'baniah</h3>
+        <p class="role">Sekretaris 1</p>
+        <h3>Maulinda Sari</h3>
+        <p class="role">Sekretaris 2</p>
+      </div>
+      <div class="card person">
+        <imgalt="Bendahara" loading="lazy" />
+        <h3>Jihan Putri Olivia</h3>
+        <p class="role">Bendahara 1</p>
+        <h3>Alya Fadhilah Ramdhani</h3>
+        <p class="role">Bendahara 2</p>
+      </div>
+      <div class="card person">
+        <imgalt="Keamanan" loading="lazy" />
+        <h3>Khuzaimah</h3>
+        <p class="role">Keamanan 1</p>
+        <h3>M.Rizqy Indra Putra</h3>
+        <p class="role">Keamanan 2</p>
+      </div>
+      <div class="card person">
+        <imgalt="Kebersihan" loading="lazy" />
+        <h3>Grisalsa Ramadhani Prasetya</h3>
+        <p class="role">Kebersihan 1</p>
+        <h3> Arumidah </h3>
+        <p class="role">Kebersihan 2 </p>
+        </div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section id="galeri" class="section container">
+    <h2 class="section-title">Galeri Kebersamaan</h2>
+    <p class="note">Tekan dan tahan (long-press) foto untuk download di HP.</p>
+
+    <div class="gallery">
+      <!-- Duplikasi <a><img/></a> ini sebanyak yang kamu mau -->
+      <a href="galeri1.jpg" class="gallery-item" download>
+        <img src="galeri1.jpg" alt="Momen 1" loading="lazy" />
+      </a>
+      <a href="galeri2.jpg" class="gallery-item" download>
+        <img src="galeri2.jpg" alt="Momen 2" loading="lazy" />
+      </a>
+      <a href="galeri3.jpg" class="gallery-item" download>
+        <img src="galeri3.jpg" alt="Momen 3" loading="lazy" />
+      </a>
+      <a href="galeri4.jpg" class="gallery-item" download>
+        <img src="galeri4.jpg" alt="Momen 4" loading="lazy" />
+      </a>
+      <a href="galeri5.jpg" class="gallery-item" download>
+        <img src="galeri5.jpg" alt="Momen 5" loading="lazy" />
+      </a>
+      <a href="galeri6.jpg" class="gallery-item" download>
+        <img src="galeri6.jpg" alt="Momen 6" loading="lazy" />
+       </a>
+       <a href="galeri7.jpg" class="gallery-item" download>
+         <img src="galeri7.jpg" alt="Momen 7"
+           loading="lazy" />
+       </a>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER / KONTAK -->
+  <footer id="kontak" class="site-footer">
+    <div class="container footer-inner">
+      <div class="ig-block">
+        
+        <div class="social-section">
+  <div class="social-section">
+  <!-- Tombol WhatsApp -->
+ <a href="https://whatsapp.com/channel/0029VbAjZrE8vd1TW9j7gk1u" target="_blank" class="social-btn whatsapp">
+  <i class="fa-brands fa-whatsapp"></i> Gabung Saluran WhatsApp
+</a>
+
+  <!-- Tombol Instagram -->
+  <a href="https://www.instagram.com/ixexplore_?igsh=eG00ZWl3eW1hZHU5" target="_blank" class="social-btn instagram">
+    <i class="fa-brands fa-instagram"></i> Kunjungi Instagram Kelas
+  </a>
+
+        </a>
+        <p class="under-ig">“Kelas Yang Kompak Akan Melahirkan Kenangan Yang Tak Terlupakan.” <strong>-9 Explore</strong></p>
+      </div>
+
+      <p class="copyright">© <span id="year"></span> Kelas 9E. Dibuat dengan semangat kebersamaan.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<footer>
+  <div class="footer-logos">
+    <img src="logo-kelas.jpg" alt="Logo Kelas" class="logo-footer">
+    <img src="logo-sekolah.jpg" alt="Logo Sekolah" class="logo-footer">
+  </div>
+</footer>
+
+<section id="info" class="reveal">
+  <h2>Informasi Kelas</h2>
+  <p>Isi tentang info kelas, jadwal piket, struktur kelas, dll.</p>
+</section>
+
+<section id="galeri" class="reveal">
+  <h2>Galeri Kebersamaan</h2>
+  <div class="gallery">
+    <img src="galeri1.jpg" alt="galeri 1">
+    <img src="galeri2.jpg" alt="galeri 2">
+    <img src="galeri3.jpg" alt="galeri 3">
+    <img src="galeri4.jpg" alt="galeri 4">
+    <img src="galeri5.jpg" alt="galeri 5">
+    <img src="galeri6.jpg" alt="galeri 6">
+  </div>
+</section>
